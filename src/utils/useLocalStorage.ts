@@ -1,3 +1,5 @@
+// custom hook that syncs state with the browser's localStorage.
+
 import { useEffect, useState } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {

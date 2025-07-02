@@ -7,11 +7,13 @@ import { v4 as uuidV4 } from "uuid";
 import { useLocalStorage } from "./utils/useLocalStorage";
 import { NewNote } from "./components/NewNote";
 import { Note, RawNote, Tag } from "./types/Note";
+import { NoteList } from "./components/NoteList";
 
 function App() {
   const [notes, setNotes] = useLocalStorage<RawNote[]>("NOTES", []);
   const [tags, setTags] = useLocalStorage<Tag[]>("TAGS", []);
 
+  // only recalculate when notes or tags change.
   const notesWithTags = useMemo(() => {
     return notes.map((note) => {
       return {
@@ -30,13 +32,26 @@ function App() {
     });
   }
 
+  function addTag(tag: Tag) {
+    setTags((prev) => [...prev, tag]);
+  }
+
   return (
     <Container className="my-5">
       <Routes>
-        <Route path="/" element={<h1>Home</h1>}></Route>
+        <Route
+          path="/"
+          element={<NoteList availableTags={tags} notes={notesWithTags} />}
+        ></Route>
         <Route
           path="/new"
-          element={<NewNote onSubmit={onCreateNote} />}
+          element={
+            <NewNote
+              onSubmit={onCreateNote}
+              onAddTag={addTag}
+              availableTags={tags}
+            />
+          }
         ></Route>
         <Route path="/:id">
           <Route index element={<h1>Show</h1>}></Route>
