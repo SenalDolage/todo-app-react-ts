@@ -2,22 +2,22 @@
 
 A to-do notes list application built with React and TypeScript, featuring categories, markdown support, filtering, and more.
 
-This project was created to revisit and reinforce core React and TypeScript concepts, while building something practical and useful.
+This project was created to revisit core React and TypeScript concepts, while building something practical and useful.
 
 I did this project to revise concepts such as:
 - TypeScript interfaces and generics in React
-- Functional components and hooks
+- Functional components, hooks and custom hooks
 - State management patterns
 - Component composition and props typing
 - Real-world UI/UX with React Bootstrap
 
 ## Features
 
-- View, Add, edit, and delete tasks
+- View, Add, edit, and delete notes
 - Markdown support for task descriptions
 - Filter tasks (e.g., by tags)
 - Responsive design using [React Bootstrap](https://react-bootstrap.github.io/)
-- Modern React patterns (`useState` and custom hooks)
+- Modern React patterns (`useState` and custom hooks like `useLocalStorage`)
 - Strongly typed components and state management with TypeScript
 
 ## Screenshots
